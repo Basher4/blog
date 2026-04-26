@@ -1,7 +1,0 @@
----
-title: "About"
----
-
-This is a technical blog built with [Quarto](https://quarto.org/) and published with GitHub Pages.
-
-Replace this page with a short bio, links to projects, and the themes you expect to write about.

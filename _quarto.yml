@@ -2,15 +2,13 @@ project:
   type: website
 
 website:
-  title: "Basher4 Blog"
+  title: "Matej's Blog"
   site-url: "https://basher4.github.io/blog/"
   description: "Technical notes, experiments, and write-ups."
   navbar:
     right:
       - text: Blog
         href: index.qmd
-      - text: About
-        href: about.qmd
       - icon: github
         href: https://github.com/Basher4/blog
   page-footer:

@@ -1,0 +1,12 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Quarto: render and preview site",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "powershell -NoProfile -ExecutionPolicy Bypass -File .vscode/quarto-preview.ps1",
+      "cwd": "${workspaceFolder}"
+    }
+  ]
+}

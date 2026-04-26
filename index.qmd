@@ -9,5 +9,3 @@ listing:
   filter-ui: false
 page-layout: full
 ---
-
-Welcome. This site is a place for technical notes, experiments, and longer-form write-ups.

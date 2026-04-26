@@ -1,0 +1,15 @@
+/*-- scss:defaults --*/
+
+/* Keep the default Quarto theme, with small readability tweaks. */
+
+body {
+  line-height: 1.65;
+}
+
+.listing-title {
+  font-weight: 650;
+}
+
+pre code {
+  white-space: pre-wrap;
+}

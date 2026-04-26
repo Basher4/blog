@@ -72,7 +72,7 @@ title-meta-links:
 
 A while ago I procured this Xilinx KU5P board from [Aliexpress](https://www.aliexpress.com/item/4001302554837.html)
 
-![Aliexpress Kintex UltraScale+ board](https://raw.githubusercontent.com/Basher4/xilinx-pcie-basics/master/docs/imgs/aliexpress_ku5p.jpg)
+![Aliexpress Kintex UltraScale+ board](imgs/aliexpress_ku5p.jpg)
 
 It's pretty barren, with a few LEDs, 2x QSFP+ ports, PCIe 3 x8 interface, and a mandatory SPI chip. Having an on-board
 DDR would be nice, but considering it costs only £150 I'm not going to be too picky.
@@ -88,11 +88,11 @@ first PCIe project I wanted to keep things as simple as possible. Both on the FP
 I discovered that the XDMA IP can work in
 [AXI Bridge Mode (PG194)](https://docs.amd.com/r/en-US/pg194-axi-bridge-pcie-gen3/Introduction) as well!
 
-![XDMA IP Configured in AXI Bridge Mode](https://raw.githubusercontent.com/Basher4/xilinx-pcie-basics/master/docs/imgs/xdma-axi-bridge-mode.png)
+![XDMA IP Configured in AXI Bridge Mode](imgs/xdma-axi-bridge-mode.png)
 
 With this configuration the IP will translate reads and writes to BAR0 of the PCIe device as AXI4 reads and writes.
 
-![XDMA IP BAR0 to AXI offset translateion](https://raw.githubusercontent.com/Basher4/xilinx-pcie-basics/master/docs/imgs/xdma-axi-bridge-pcie-to-axi-translate.png)
+![XDMA IP BAR0 to AXI offset translateion](imgs/xdma-axi-bridge-pcie-to-axi-translate.png)
 
 This should make writing software really simple, or so I thought.
 
@@ -101,7 +101,7 @@ This should make writing software really simple, or so I thought.
 The block diagram contains two BRAM memories accessible via the AXI network, an LED to indicate whether the link is up,
 and an LED to indicate whether we have clock on the AXI bus.
 
-![Block Diagram](https://raw.githubusercontent.com/Basher4/xilinx-pcie-basics/master/docs/imgs/block.svg)
+![Block Diagram](imgs/block.svg)
 
 ## AXI memory map
 
@@ -568,7 +568,7 @@ running the benchmark.
 
 ## Reads
 
-![ILA Capture of READ transactions](https://raw.githubusercontent.com/Basher4/xilinx-pcie-basics/master/docs/imgs/vivado-read-transaction.png)
+![ILA Capture of READ transactions](imgs/vivado-read-transaction.png)
 
 At a glance we can see that the bus is woefully underutilised. We are reading 8 bytes every 298 clock cycles. At 125MHz
 clock, that gives us $8B * 125 * 10^6Hz / 298 \approx 3.2 MiB/s$ of read bandwidth. Unsurprisingly, that matches almost
@@ -579,7 +579,7 @@ though the addresses are different, read transactions cannot overlap.
 
 ## Writes
 
-![ILA Capture of WRITE transactions](https://raw.githubusercontent.com/Basher4/xilinx-pcie-basics/master/docs/imgs/vivado-write-transactions.png)
+![ILA Capture of WRITE transactions](imgs/vivado-write-transactions.png)
 
 This looks better compared to reads. Time to complete a single write is 25 clock cycles, and we initiate a new write
 every 12 cycles = 96ns. This means we should see roughly 79.5 MiB/s of write bandwidth. Less than what we see, by ~13%.
